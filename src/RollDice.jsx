@@ -30,8 +30,8 @@ export class RollDice extends Component {
     return (
       <div className="RollDice">
         <div className="RollDice-container">
-          <Die dieValue={this.state.dieValue1} />
-          <Die dieValue={this.state.dieValue2} />
+          <Die dieValue={this.state.dieValue1} rolling={this.state.rolling} />
+          <Die dieValue={this.state.dieValue2} rolling={this.state.rolling} />
         </div>
         <button
           disabled={this.state.rolling}
