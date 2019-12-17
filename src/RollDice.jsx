@@ -15,12 +15,12 @@ export class RollDice extends Component {
     const rand1 = Math.floor(Math.random() * 6) + 1;
     const rand2 = Math.floor(Math.random() * 6) + 1;
     this.setState({
+      dieValue1: rand1,
+      dieValue2: rand2,
       rolling: true
     });
     setTimeout(() => {
       this.setState({
-        dieValue1: rand1,
-        dieValue2: rand2,
         rolling: false
       });
     }, 1000);
@@ -28,11 +28,17 @@ export class RollDice extends Component {
 
   render() {
     return (
-      <div>
-        <Die dieValue={this.state.dieValue1} />
-        <Die dieValue={this.state.dieValue2} />
-        <button className="btn" onClick={this.generateRandomDice}>
-          {this.state.rolling ? 'rolling' : 'Role Dice'}
+      <div className="RollDice">
+        <div className="RollDice-container">
+          <Die dieValue={this.state.dieValue1} />
+          <Die dieValue={this.state.dieValue2} />
+        </div>
+        <button
+          disabled={this.state.rolling}
+          className="btn"
+          onClick={this.generateRandomDice}
+        >
+          {this.state.rolling ? 'rolling...' : 'Roll Dice'}
         </button>
       </div>
     );

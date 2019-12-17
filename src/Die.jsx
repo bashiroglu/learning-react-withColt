@@ -6,7 +6,7 @@ export class Die extends Component {
     const numArray = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
     const { dieValue } = this.props;
     return (
-      <div>
+      <div className="Dice">
         <i className={`Die fas fa-dice-${numArray[dieValue]}`}></i>
       </div>
     );
