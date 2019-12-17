@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Die.css';
 
 export class Die extends Component {
   render() {
@@ -6,7 +7,7 @@ export class Die extends Component {
     const { dieValue } = this.props;
     return (
       <div>
-        <i class={`fas fa-dice-${numArray[dieValue]}`}></i>
+        <i className={`Die fas fa-dice-${numArray[dieValue]}`}></i>
       </div>
     );
   }
