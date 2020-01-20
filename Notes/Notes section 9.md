@@ -128,3 +128,11 @@ constructor(props) {
     );
   }
 ```
+
+- Another concept is key. Key is used by react to identify what is changed, added, removed, updated.
+
+1.  key should be unique.
+2.  we mainly use id of component as a key
+3.  key should be used in every array iteration or loop of components.
+4.  we can use uuid third party library to have unique ids.
+5.  we can use index of element while iteration(but not good practice)
