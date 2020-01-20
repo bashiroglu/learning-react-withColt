@@ -129,6 +129,8 @@ constructor(props) {
   }
 ```
 
+There is naming convention for these functions. The action name takes function action type name, for example (remove, add, delete etc.). But the function in child component take Name of parent function and handle keyword(handleRemove, handleAdd, handleDelete etc.).
+
 - Another concept is key. Key is used by react to identify what is changed, added, removed, updated.
 
 1.  key should be unique.
