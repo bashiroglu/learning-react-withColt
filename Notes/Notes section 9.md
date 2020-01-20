@@ -33,3 +33,98 @@ Or like this
       Click on me!
 </button>
 ```
+
+- Passing functions to child components as a prop. We mainly keep our state in parent component and pass state and action functions of those states as a prop.
+
+```
+constructor(props) {
+    super(props);
+    this.state = { nums: [1, 2, 3, 4, 5] };
+  }
+
+  remove(num) {
+    this.setState(st => ({
+      nums: st.nums.filter(n => n !== num)
+    }));
+  }
+
+
+   render() {
+    return (
+      <div>
+        <h1>First Number List</h1>
+        <ul>
+          {this.state.nums.map(n => (
+            <NumberItem value={n} remove={() => this.remove(n)} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+  }
+```
+
+In child component
+
+```
+render() {
+    return (
+      <li>
+        {this.props.value}
+        <button onClick={this.props.remove}>X</button> //we refer action function in parent
+        // and remove the element by useing remove function in parent.
+      </li>
+    );
+  }
+```
+
+But propblem with above code is that. We create many new function when we bind them inline. That is why we have another solution.
+
+In order to avoid this problem we can bind our parent action function in constructor and pass to child. In child we can refer it in our another function by refering it.
+
+```
+constructor(props) {
+    super(props);
+    this.state = { nums: [1, 2, 3, 4, 5] };
+    this.remove = this.remove.bind(this); //we bind remove here
+  }
+
+  remove(num) {
+    this.setState(st => ({
+      nums: st.nums.filter(n => n !== num)
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Better Number List</h1>
+        <ul>
+          {this.state.nums.map(n => (
+            <BetterNumberItem key={n} value={n} remove={this.remove} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+```
+
+in child component.
+
+```
+constructor(props) {
+    super(props);
+    this.handleRemove = this.handleRemove.bind(this); //we bind handleRemove function in here
+  }
+  handleRemove(evt) {
+    this.props.remove(this.props.value);
+  }
+   render() {
+    return (
+      <li>
+        {this.props.value}
+        <button onClick={this.handleRemove}>X</button> // we call it.
+      </li>
+    );
+  }
+```
