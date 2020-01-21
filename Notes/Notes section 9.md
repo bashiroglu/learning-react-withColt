@@ -140,7 +140,7 @@ There is naming convention for these functions. The action name takes function a
 5.  we can use index of element while iteration(but not good practice)
 
 - Sometimes in applications we need some place for data or state which won't be updated.
-  For these purposes we can use default props. Syntax is as below:
+  For these purposes we can use default props. It is convention to add defaultProps just before constructor function of Class. Syntax is as below:
 
 ```
 static defaultProps = {
