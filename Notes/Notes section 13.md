@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
+In React we handle input state ourselves, for this purpose we use function which update state.
 
-/** Simple app that just shows the LightsOut game. */
+We can write handleChange function for each input but there is also another way of updating respective state by using ES2015 JS feature.
 
-class App extends Component {
-  constructor(props) {
+```
+constructor(props) {
     super(props);
     this.state = {
       username: '',
@@ -13,7 +12,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(evt) {
-    this.setState({ [evt.target.name]: evt.target.value });
+    this.setState({ [evt.target.name]: evt.target.value }); //evt.target.name will be name //and email based on where we call it
   }
 
   render() {
@@ -38,6 +37,4 @@ class App extends Component {
       </div>
     );
   }
-}
-
-export default App;
+```
