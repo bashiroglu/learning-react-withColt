@@ -31,7 +31,7 @@
   margin-top: 0;
 }
 
-.Hangman button {
+.Hangman .button {
   border: none;
   font-family: inherit;
   font-size: 1rem;
