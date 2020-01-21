@@ -150,3 +150,30 @@ static defaultProps = {
     numsOfPeople: 21
   };
 ```
+
+- It is first time that I faced this kind of code and it is seen we don't need returned value to render, we can also pass reference of array which is consist of references to jsx objects. Basically it works. Example below.
+
+```
+makeTable() {//then we call this function inside of render method
+    let tblBoard = [];
+    for (let y = 0; y < this.props.nrows; y++) {
+      let row = [];
+      for (let x = 0; x < this.props.ncols; x++) {
+        let coord = `${y}-${x}`;
+        row.push(
+          <Cell
+            key={coord}
+            isLit={this.state.board[y][x]}
+            flipCellsAroundMe={() => this.flipCellsAround(coord)}
+          />
+        );
+      }
+      tblBoard.push(<tr key={y}>{row}</tr>);
+    }
+    return (
+      <table className='Board'>
+        <tbody>{tblBoard}</tbody>
+      </table>
+    );
+  }
+```
