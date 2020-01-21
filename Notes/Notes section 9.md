@@ -138,3 +138,15 @@ There is naming convention for these functions. The action name takes function a
 3.  key should be used in every array iteration or loop of components.
 4.  we can use uuid third party library to have unique ids.
 5.  we can use index of element while iteration(but not good practice)
+
+- Sometimes in applications we need some place for data or state which won't be updated.
+  For these purposes we can use default props. Syntax is as below:
+
+```
+static defaultProps = {
+    nrows: 5,
+    ncols: 5,
+    chanceLightStartsOn: 0.25,
+    numsOfPeople: 21
+  };
+```
