@@ -38,3 +38,5 @@ constructor(props) {
     );
   }
 ```
+
+- Passing state to parent component. This is the way we used before to pass event ocject or any argument to function cames with props from parent. It is the same structure here. We call the function by using this.props.FunctionActionName and pass state or any value from state. The rest will be handled by React
