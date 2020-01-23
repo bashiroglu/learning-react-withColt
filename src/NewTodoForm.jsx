@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export class NewTodoForm extends Component {
   constructor(props) {
     super(props);
@@ -16,14 +15,22 @@ export class NewTodoForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.addTodo(this.state);
+    this.setState({ todoField: '' });
   }
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" name="todoField" onChange={this.handleChange} />
-          <button type="submit">add todo</button>
+          <input
+            value={this.props.value}
+            type="text"
+            name="todoField"
+            onChange={this.handleChange}
+          />
+          <button type="submit">
+            {this.props.button === 'edit' ? 'edit' : 'add todo'}
+          </button>
         </form>
       </div>
     );

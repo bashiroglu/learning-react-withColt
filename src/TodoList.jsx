@@ -6,7 +6,7 @@ export class TodoList extends Component {
     return (
       <div>
         {this.props.todos.map(todo => (
-          <Todo key={todo.id} message={todo.task} />
+          <Todo key={todo.id} message={todo.task} Update={this.props.Update}/>
         ))}
       </div>
     );

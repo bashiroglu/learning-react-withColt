@@ -23,11 +23,14 @@ class App extends Component {
       ]
     });
   }
+  Update(){
+
+  }
 
   render() {
     return (
       <div className="App">
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} Update={this.Update} />
         <NewTodoForm addTodo={this.addTodo} />
       </div>
     );
