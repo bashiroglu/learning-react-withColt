@@ -1,40 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
-
-/** Simple app that just shows the LightsOut game. */
+import TodoList from './TodoList';
+import NewTodoForm from './NewTodoForm';
+import uuid from 'uuid';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      email: ''
+      todos: [{ id: uuid(), task: 'take children from home' }]
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.addTodo = this.addTodo.bind(this);
   }
-  handleChange(evt) {
-    this.setState({ [evt.target.name]: evt.target.value });
+  addTodo(item) {
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          task: item.todoField,
+          id: uuid()
+        }
+      ]
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <form>
-          <input
-            type="text"
-            placeholder="username"
-            value={this.state.username}
-            name="username"
-            onChange={this.handleChange}
-          />
-          <input
-            type="text"
-            placeholder="email"
-            value={this.state.email}
-            name="email"
-            onChange={this.handleChange}
-          />
-        </form>
+        <TodoList todos={this.state.todos} />
+        <NewTodoForm addTodo={this.addTodo} />
       </div>
     );
   }
