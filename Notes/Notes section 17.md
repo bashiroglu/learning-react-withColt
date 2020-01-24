@@ -18,8 +18,8 @@ async componentDidMount() {
 
 - #### ComponentDidUpdate
 
-ComponentDidUpdate is one of React's built is functions, React call it after renders which were called because of state is changed. This is good place to optimise our components.
+ComponentDidUpdate is one of React's built is functions, React call it after renders which were called because of state is changed. This is good place to optimise our components. In this function we have access PrevProps and PrevState by using them in function respectively.
 
-  - #### ComponentWillUnmount
+- #### ComponentWillUnmount
 
 ComponentWillUnmount is one of React's built is functions, React call it just after component get distroyed. It is unuseful to setState here because React won't call Redner after it.

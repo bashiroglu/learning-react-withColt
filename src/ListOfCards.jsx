@@ -22,7 +22,9 @@ export class ListOfCards extends Component {
       `https://deckofcardsapi.com/api/deck/${this.state.listId}/draw/`
     );
     const CountOfRemainingCards = response.data.remaining;
-    if (CountOfRemainingCards > 0) {
+    if (response.data.success) {
+      // we have to this because in 51 response we already get
+      //remaing left 0
       const newCard = response.data.cards[0];
       const newCards = [...this.state.listOfCards];
       newCards.push(newCard);
