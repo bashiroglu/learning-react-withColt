@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import "./Die.css";
+import React, { Component } from 'react';
+import './Die.css';
 
 class Die extends Component {
   static defaultProps = {
-    numberWords: ["one", "two", "three", "four", "five", "six"],
+    numberWords: ['one', 'two', 'three', 'four', 'five', 'six'],
     val: 5
   };
   constructor(props) {
@@ -12,14 +12,15 @@ class Die extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick() {
-    this.props.handleClick(this.props.idx);
+    this.props.handleClick(this.props.idx); //we pass idx here to enable
+    // function because it expect something to identify the die
   }
 
   render() {
     const { numberWords, locked, val, disabled, rolling } = this.props;
     let classes = `Die fas fa-dice-${numberWords[val - 1]} fa-5x `;
-    if (locked) classes += "Die-locked";
-    if (rolling) classes += "Die-rolling";
+    if (locked) classes += 'Die-locked';
+    if (rolling) classes += 'Die-rolling';
     return (
       <i className={classes} onClick={this.handleClick} disabled={disabled} />
     );
