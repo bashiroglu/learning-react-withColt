@@ -21,7 +21,7 @@ export class ListOfCards extends Component {
     const response = await axios.get(
       `https://deckofcardsapi.com/api/deck/${this.state.listId}/draw/`
     );
-    const CountOfRemainingCards = response.data.remaining;
+    // const CountOfRemainingCards = response.data.remaining;
     if (response.data.success) {
       // we have to this because in 51 response we already get
       //remaing left 0

@@ -1,17 +1,15 @@
 .App {
-  text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
-}
-
-.App-title {
-  margin-top: 1rem;
-  color: white;
-  margin-bottom: 0;
-  font-weight: 100;
-  display: inline-block;
-  font-size: 5rem;
-  width: 50%;
+  font-family: "Rubik", sans-serif;
+  color: #78909c;
+  background: linear-gradient(
+    135deg,
+    rgba(179, 229, 252, 1) 0%,
+    rgba(179, 229, 252, 1) 50%,
+    rgba(240, 98, 146, 1) 50%,
+    rgba(240, 98, 146, 1) 100%
+  );
 }
