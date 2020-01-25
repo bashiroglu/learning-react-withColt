@@ -68,10 +68,11 @@ with component and another sytax it will be passed automatically
  <Redirect to='/' />
 ```
 
-another way of redirecting is history.push, history is object hold all urls history, if we want to add, we can push new url to that object. But before that we make sure that that component have access to our props.
+another way of redirecting is history.push, history is object hold all urls history, if we want to add, we can push new url to that object. But before that we make sure that that component have access to our props. we can also use other methods in history object.
 
 ```
 this.props.history.push(`/food/${this.state.query}`);
+this.props.history.goBack()
 ```
 
 - if we compare to this two redirecting features, we can see that history keep the history of our url requests as a result we can use and go back, but redirect doesn't. So, It means in successful requests we can use history push but otherwise we have to use redirect.
