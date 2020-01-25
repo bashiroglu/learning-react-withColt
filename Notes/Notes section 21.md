@@ -22,7 +22,7 @@ We can use it like below:
 </Switch>
 ```
 
-- exact means this exact path and it is wrapped with Switch,
+- exact means this exact path and it is wrapped with Switch, <Switch> basically say only one of them can be rendered per time.
   Path mean in which url we will render this component
   if we want to pass prop we can below syntax
 
@@ -47,3 +47,15 @@ We can this functionality by using components Link and NavLink. Only advantage o
     About
 </NavLink>
 ```
+
+- We can pass the param by using rotueparams. Also it is possible to pass prop by using name component in here.
+
+```
+  <Route
+   exact
+    path='/food/:name'
+    render={routeProps => <Food {...routeProps} />}
+  />
+```
+
+with component and another sytax it will be passed automatically
