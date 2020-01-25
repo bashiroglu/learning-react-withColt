@@ -83,3 +83,5 @@ this.props.history.goBack()
 import { withRouter } from "react-router-dom";
 export default withRouter(Navbar);
 ```
+
+After defining our routes in app.js we can move it to another component and use that component in app.js to improve readablity or preferably do it beforehand. 
