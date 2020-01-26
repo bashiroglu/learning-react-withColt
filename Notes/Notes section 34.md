@@ -86,3 +86,29 @@ const { isDarkMode, toggleTheme } = this.context;
 
 <Switch onChange={toggleTheme} />
 ```
+
+- Technically we can not use 2 same context in one component but we can use HOC to manage this, HOC will take our component as a parametr and return the same component after injecting the prop in it. 
+
+it looks like below
+```
+export const withLanguageContext = Component => props => (
+  <LanguageContext.Consumer>
+    {value => <Component languageContext={value} {...props} />}
+  </LanguageContext.Consumer>
+);
+```
+we export it and use where we need state. 
+```
+import { withLanguageContext } from "./contexts/LanguageContext";
+
+const { language } = this.props.languageContext;
+
+export default withLanguageContext(Navbar); 
+
+```
+- at the same time we can use previous method to extract state from another context
+```
+const { isDarkMode, toggleTheme } = this.context;
+
+const { language } = this.props.languageContext;
+```
